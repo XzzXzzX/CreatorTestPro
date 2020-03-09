@@ -23,9 +23,9 @@ export default class Helloworld extends cc.Component {
     }
 
     testFrameHanle(): void {
-        FrameHandleManager.getInstace().addFrameTask(this.testFrame1);
-        FrameHandleManager.getInstace().addFrameTask(this.testFrame2, 2);
-        FrameHandleManager.getInstace().addFrameTask(this.testFrame2, { a: 'aa', b: 10 });
+        FrameHandleManager.getInstace().addFrameTask(this.testFrame1.bind(this));
+        FrameHandleManager.getInstace().addFrameTask(this.testFrame2.bind(this), 2);
+        FrameHandleManager.getInstace().addFrameTask(this.testFrame2.bind(this), { a: 'aa', b: 10 });
     }
 
     testFrame1(): void {
