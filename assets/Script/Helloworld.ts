@@ -38,16 +38,15 @@ export default class Helloworld extends cc.Component {
     }
 
     testFrame1(): void {
-        cc.log("testFrame1 _____ ");
+        cc.log("testFrame1 _____ ", new Date().getTime());
     }
 
-
     testFrame2(prama: number): void {
-        cc.log("testFrame2 _____ prama: ", prama);
+        cc.log("testFrame2 _____ prama: ", prama, new Date().getTime());
     }
 
     testFrame3(param: any): void {
-        cc.log("testFrame3 _____ prama: ", param);
+        cc.log("testFrame3 _____ prama: ", param, new Date().getTime());
     }
 
     testAni(): void {
