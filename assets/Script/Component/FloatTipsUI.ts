@@ -12,10 +12,9 @@ export default class FloatTipsUI extends cc.Component {
     @property(cc.Label)
     labTip: cc.Label = null;
 
-
     public static showTips(parentNode: cc.Node, prama: string): void {
-        // cc.loader.loadRes('prefabs/CommonView/FloatTipsUI', cc.Prefab, FloatTipsUI.createUI);
-        // let tipsNode: cc.Node = new cc.Node();
+        // 对应的ui预制件资源需要预先加载 
+        // cc.loader.loadRes('prefabs/CommonView/FloatTipsUI', cc.Prefab);
         let tipsNode: cc.Node = cc.loader.getRes('prefabs/CommonView/FloatTipsUI');
         tipsNode = cc.instantiate(tipsNode);
         let cmp: FloatTipsUI = tipsNode.getComponent(FloatTipsUI);
@@ -30,39 +29,9 @@ export default class FloatTipsUI extends cc.Component {
         }
     }
 
-    loadResFinish(err: any, res: any): void {
-
-    }
-
-    public static createUI(err: any, res: any): void {
-        if (!err) {
-            let tipNode: cc.Node = cc.instantiate(res);
-            let cmp: FloatTipsUI = tipNode.addComponent(FloatTipsUI);
-            // cmp.setData(prama);
-            cmp.show();
-        }
-    }
-
-    onEnable(): void {
-
-    }
-
-    onStart(): void {
-
-    }
-
-    onDisable(): void {
-
-    }
-
-    onDestroy(): void {
-
-    }
-
     setData(str: string): void {
         this.labTip.string = str;
     }
-
 
     show(seconds?) {
         this.node.opacity = 255;
