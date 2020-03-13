@@ -1,4 +1,5 @@
 import FrameHandleManager from "./Helper/FrameHandleManager";
+import FloatTipsUI from "./Component/FloatTipsUI";
 
 const { ccclass, property } = cc._decorator;
 
@@ -14,7 +15,12 @@ export default class Helloworld extends cc.Component {
     @property(cc.Node)
     nodeTest: cc.Node = null;
 
+    @property(cc.Node)
+    layerTips: cc.Node = null;
+
     onLoad(): void {
+        cc.loader.loadRes('prefabs/CommonView/FloatTipsUI', cc.Prefab);
+
         FrameHandleManager.getInstace().init();
     }
 
@@ -54,7 +60,8 @@ export default class Helloworld extends cc.Component {
 
     onTestBtnClick(): void {
         // this.playMoveAction();
-        this._testRunTable();
+        // this._testRunTable();
+        this._testFloatTip();
     }
 
     _posCfgList = [
@@ -117,5 +124,10 @@ export default class Helloworld extends cc.Component {
         var action = new cc.RunTurntable(6, this._posCfgList, 3, 2);
         var easeAction = action.easing(cc.easeSineOut());
         this.nodeTest.runAction(easeAction);
+    }
+
+    /** 测试浮动提示 */
+    _testFloatTip(): void {
+        FloatTipsUI.showTips(this.layerTips, "《提示提示提示提示》");
     }
 }
